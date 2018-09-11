@@ -3,6 +3,16 @@
     padding: 0;
     list-style: none;
     display: flex;
+    /*items underneath each other instead of next to each other*/
+    flex-flow: column;
     align-items: center;
     height: 100%;
+}
+
+/*desktop*/
+@media (min-width: 500px) {
+    .NavigationItems {
+        flex-flow: row;
+
+    }
 }

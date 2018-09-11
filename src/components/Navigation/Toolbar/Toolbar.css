@@ -17,3 +17,15 @@
     height: 100%;
 
 }
+
+/*uses CSS modules*/
+.Logo {
+    height: 80%;
+}
+
+/*remove nav items if toolbar contains them/we are on a mobile device*/
+@media(max-width: 499px) {
+    .DesktopOnly {
+        display: none;
+    }
+}
