@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Aux from '../../hoc/Aux';
 import classes from './Layout.css';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
@@ -7,18 +8,24 @@ import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 //wrapper for the core content component we are rendering to the screen
 class Layout extends Component {
   state = {
-    showSideDrawer: true
+    showSideDrawer: false
   };
 
   sideDrawerClosedHandler = () => {
-    this.setState({showSideDrawer: false});
+    this.setState( { showSideDrawer: false } );
 
+  };
+  // use function form because setState is asynch, may lead to unexpected outcomes
+  sideDrawerToggleHandler = () => {
+    this.setState( ( prevState ) => {
+      return { showSideDrawer: !prevState.showSideDrawer };
+    } );
   };
 
   render() {
     return (
     <Aux>
-      <Toolbar />
+      <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler}/>
       <SideDrawer
         open={this.state.showSideDrawer}
         closed={this.sideDrawerClosedHandler}/>
